@@ -246,8 +246,12 @@
   .contact-card .eyebrow{ color: #9FBEDD; }
   .contact-card .eyebrow::before{ background:#9FBEDD; }
   .contact-list{ display:flex; flex-direction:column; gap: 12px; position:relative; }
-  .contact-list a{ font-size:14.5px; font-weight:500; display:flex; align-items:center; gap:10px; color: #DCE8F5; }
+  .contact-list a{ font-size:14.5px; font-weight:500; display:flex; align-items:center; gap:10px; color: #DCE8F5; word-break: break-word; overflow-wrap: anywhere; }
   .contact-list a:hover{ color:#fff; }
+  @media (max-width: 600px){
+    .contact-card{ padding: 40px 28px; }
+    .contact-list a{ font-size:13.5px; }
+  }
 
   footer{ padding: 36px 0; }
   footer .wrap{ display:flex; justify-content:space-between; font-size:13px; color: var(--ink-faint); }
@@ -631,9 +635,10 @@
 
   const progressBar = document.getElementById('scrollProgress');
   const updateProgress = () => {
-    const h = document.documentElement;
-    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-    progressBar.style.width = scrolled + '%';
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
   };
   window.addEventListener('scroll', updateProgress);
   updateProgress();
