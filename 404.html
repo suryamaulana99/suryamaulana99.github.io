@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<script>
+  (function(){
+    try{
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+    }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halaman tidak ditemukan | Surya Maulana Nugroho</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F7FAFD" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070B12" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232F5F94'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial, sans-serif' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#F7FAFD; --panel:#FFFFFF; --ink:#0D141F; --ink-soft:#4F5D70;
+    --line:#E1E9F2; --line-2:#CDDBEA; --blue:#2F5F94; --blue-hi:#3C79BC; --blue-deep:#1A3352;
+    --tint:#E9F1FA; --glow:rgba(47,95,148,.16); --grid-line:rgba(47,95,148,.07);
+  }
+  [data-theme="dark"]{
+    color-scheme: dark;
+    --bg:#070B12; --panel:#0F1620; --ink:#E8EFF8; --ink-soft:#9FADBE;
+    --line:#1C2735; --line-2:#2A3948; --blue:#4E8FCC; --blue-hi:#79B2E4; --blue-deep:#0E1B2C;
+    --tint:#132030; --glow:rgba(78,143,204,.22); --grid-line:rgba(78,143,204,.08);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif; line-height:1.65;
+    display:grid; place-items:center; padding:32px; position:relative; overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 10%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 10%, transparent 75%);
+  }
+  body::after{
+    content:""; position:fixed; top:-200px; left:50%; transform:translateX(-50%);
+    width:800px; height:560px; z-index:-2; pointer-events:none;
+    background:radial-gradient(ellipse at center, var(--glow), transparent 68%);
+  }
+  .box{ text-align:center; max-width:520px; }
+  .code{
+    font-family:'Sora',sans-serif; font-weight:700; font-size:clamp(72px,18vw,140px);
+    line-height:1; letter-spacing:-.05em;
+    background:linear-gradient(120deg,var(--blue),var(--blue-hi));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  h1{ font-family:'Sora',sans-serif; font-weight:600; font-size:clamp(20px,4vw,27px); margin:14px 0 0; letter-spacing:-.02em; }
+  p{ color:var(--ink-soft); margin:14px 0 0; font-size:15.5px; }
+  .path{
+    font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--blue);
+    background:var(--tint); border:1px solid var(--line-2); border-radius:8px;
+    padding:5px 11px; display:inline-block; margin-top:18px; word-break:break-all;
+  }
+  .actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+  .btn{
+    font-size:14.5px; font-weight:600; padding:13px 24px; border-radius:100px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none; border:1px solid transparent;
+    transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
+  }
+  .btn.primary{ background:var(--blue); color:#fff; box-shadow:0 6px 20px var(--glow); }
+  .btn.primary:hover{ background:var(--blue-deep); transform:translateY(-2px); }
+  [data-theme="dark"] .btn.primary:hover{ background:var(--blue-hi); color:#0A121C; }
+  .btn.ghost{ border-color:var(--line-2); color:var(--ink); background:var(--panel); }
+  .btn.ghost:hover{ border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
+  :focus-visible{ outline:2px solid var(--blue-hi); outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="code">404</div>
+    <h1>Halaman ini tidak ada</h1>
+    <p>Mungkin alamatnya salah ketik, atau halamannya sudah dipindah.</p>
+    <div class="path" id="path">/</div>
+    <div class="actions">
+      <a href="/" class="btn primary">Kembali ke beranda</a>
+      <a href="/#kontak" class="btn ghost">Hubungi saya</a>
+    </div>
+  </div>
+<script>
+  document.getElementById('path').textContent = location.pathname + location.search;
+</script>
+</body>
+</html>
